@@ -1,0 +1,291 @@
+O:8:"stdClass":7:{s:4:"file";s:24:"verktyg/120_shortcode.md";s:7:"section";s:3:"120";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"views";a:6:{s:5:"flash";a:3:{s:6:"region";s:5:"flash";s:8:"template";s:21:"anax/v2/image/default";s:4:"data";a:1:{s:3:"src";s:68:"image/theme/tree.jpg?width=1100&height=150&crop-to-fit&area=0,0,30,0";}}s:10:"breadcrumb";a:3:{s:6:"region";s:10:"breadcrumb";s:8:"template";s:26:"anax/v2/breadcrumb/default";s:4:"data";a:2:{s:4:"meta";a:1:{s:4:"type";s:10:"breadcrumb";}s:10:"breadcrumb";a:2:{i:1;a:2:{s:3:"url";s:8:"verktyg/";s:4:"text";s:20:"Verktyg och tekniker";}i:0;a:2:{s:3:"url";s:17:"verktyg/shortcode";s:4:"text";s:9:"Shortcode";}}}}s:19:"next-previous-above";a:4:{s:6:"region";s:4:"main";s:8:"template";s:29:"anax/v2/next-previous/default";s:4:"sort";i:1;s:4:"data";a:4:{s:17:"nextPreviousTitle";b:0;s:4:"meta";a:1:{s:4:"type";s:13:"next-previous";}s:4:"next";a:10:{s:4:"file";s:26:"verktyg/130_frontmatter.md";s:7:"section";s:3:"130";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Frontmatter";s:11:"publishTime";i:1540245600;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:19:"verktyg/frontmatter";}s:8:"previous";a:10:{s:4:"file";s:23:"verktyg/110_markdown.md";s:7:"section";s:3:"110";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Markdown";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:16:"verktyg/markdown";}}}s:4:"main";a:3:{s:4:"sort";i:2;s:4:"data";a:3:{s:4:"meta";a:1:{s:4:"type";s:8:"toc-sort";}s:7:"content";s:4836:"<h1>Shortcode</h1>
+
+<p>Shortcode är ett koncept som adderar ett lager till Markdown. Man skriver en shortcode som i sin tur genererar en sekvens av HTML.</p>
+
+<p>Shortcode är inte Markdown utan ett koncept som förenklar att lägga till en bild med bildtext, en youtube video, en codepen, en asciinema eller en annand godtycklig webbresurs som kan inkluderas i ett dokument via en sekvens av html-element.</p>
+
+<h2>Shortcode som stöds av ramverket</h2>
+
+<p>De shortcodes som stöds av ramverket är följande.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Shortcode</th>
+  <th>Beskrivning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ASCIINEMA</td>
+  <td>Inkludera en Asciinema i dokumentet, inklusive en figcaption.</td>
+</tr>
+<tr>
+  <td>CODEPEN</td>
+  <td>Inkludera en Codepen i dokumentet, inklusive en figcaption.</td>
+</tr>
+<tr>
+  <td>FIGURE</td>
+  <td>Visa bilder tillsammans med en bildtext och med möjligheten att lägga till CSS-klasser till bilden för att till exempel justera bilden till höger eller vänster.</td>
+</tr>
+<tr>
+  <td>INFO</td>
+  <td>Visa en informationsruta med text.</td>
+</tr>
+<tr>
+  <td>YOUTUBE</td>
+  <td>Lägg till Youtube videor inom en figure/figcaption.</td>
+</tr>
+<tr>
+  <td>WARNING</td>
+  <td>Visa en varningsruta med text.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Här följer ett par exempel på hur man använder dessa shortcodes.</p>
+
+<h2>Bilder med shortcode</h2>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg?width=1100&height=100&crop-to-fit" alt="En eld som tar upp hela sidan."/></a>
+<figcaption>
+
+<p>En eld som tar upp hela sidan.</p>
+
+</figcaption>
+</figure>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg?width=300" alt="En liten eld som flyter till höger."/></a>
+<figcaption>
+
+<p>En liten eld som flyter till höger.</p>
+
+</figcaption>
+</figure>
+
+<p>Fördelen med en shortcode för bilder är att vi kan omsluta bilden med en figure och figcaption samt tillföra en CSS-klass.</p>
+
+<p>Detta ger oss möjligheten att justera bilder till vänster eller höger eller låta dem var ai mitten. Genom att bygga CSS-klasser så kan vi få full frihet över hur bilderna visas tillsammans med texten.</p>
+
+<p>Vi kan också vara säkra på att vi får en enhetlig struktur på HTML-koden för alla bilder.</p>
+
+<h2>Informations- och varningsrutor</h2>
+
+<p>Ibland vill man uppmärksamma läsaren på något extra i texten.</p>
+
+<div class="info">
+    <span class="icon fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-info fa-stack-1x fa-inverse" aria-hidden="true"></i>
+    </span>
+    <div>
+
+<p><strong>Detta är ren information upplysningsvis.</strong></p>
+
+<p>Här kan man skriva information och rama in det i en info-ruta.</p>
+
+</div></div>
+
+<p>Vill man varna användaren så passar en varningsruta bättre.</p>
+
+<div class="warning">
+    <span class="icon fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse" aria-hidden="true"></i>
+    </span>
+    <div>
+
+<p><strong>Detta är en VARNING!</strong></p>
+
+<p>Här skriver vi information om varför vi väljer att varna användaren.</p>
+
+</div></div>
+
+<h2>Video</h2>
+
+<p>Så här kan man länka till en video och inkludera den i artikeln, med eller utan referens till den spellistan som videon kan ingå i.</p>
+
+<figure class="figure">
+<iframe width="700" height="394" src="https://www.youtube.com/embed/eUBMCd7Tj6Q?listType=playlist&amp;list=PLKtP9l5q3ce_TF99y6BbUFC0Xzt6Pd9Ts" frameborder="0" allowfullscreen></iframe>
+<figcaption>
+
+<p>Mikael visar hur man felsöker med en gummianka.</p>
+
+</figcaption>
+</figure>
+
+<h2>Codepen</h2>
+
+<p>Med en Codepen kan man inkludera exempel på HTML, CSS och JavaScript i sitt dokument.</p>
+
+<figure class="figure figure-codepen" width="100%">
+<p data-height="300" data-theme-id="0" data-slug-hash="LpOqgN" data-default-tab="result" data-user="" data-embed-version="2" data-pen-title="" class="codepen">See the <a href="https://codepen.io//pen/LpOqgN/">Pen</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<figcaption>
+
+<p>En Codepen med färger, bara som ett exempel.</p>
+
+</figcaption>
+</figure>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2>Asciinema</h2>
+
+<p>Här är en Asciinema som säger hej och välkommen.</p>
+
+<figure class="figure asciinema">
+<script type="text/javascript" src="https://asciinema.org/a/207899.js" id="asciicast-207899" async></script>
+<figcaption>
+
+<p>Kossan i cowsay hälsar välkommen till design-kursen.</p>
+
+</figcaption>
+</figure>
+";s:7:"excerpt";s:4836:"<h1>Shortcode</h1>
+
+<p>Shortcode är ett koncept som adderar ett lager till Markdown. Man skriver en shortcode som i sin tur genererar en sekvens av HTML.</p>
+
+<p>Shortcode är inte Markdown utan ett koncept som förenklar att lägga till en bild med bildtext, en youtube video, en codepen, en asciinema eller en annand godtycklig webbresurs som kan inkluderas i ett dokument via en sekvens av html-element.</p>
+
+<h2>Shortcode som stöds av ramverket</h2>
+
+<p>De shortcodes som stöds av ramverket är följande.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Shortcode</th>
+  <th>Beskrivning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ASCIINEMA</td>
+  <td>Inkludera en Asciinema i dokumentet, inklusive en figcaption.</td>
+</tr>
+<tr>
+  <td>CODEPEN</td>
+  <td>Inkludera en Codepen i dokumentet, inklusive en figcaption.</td>
+</tr>
+<tr>
+  <td>FIGURE</td>
+  <td>Visa bilder tillsammans med en bildtext och med möjligheten att lägga till CSS-klasser till bilden för att till exempel justera bilden till höger eller vänster.</td>
+</tr>
+<tr>
+  <td>INFO</td>
+  <td>Visa en informationsruta med text.</td>
+</tr>
+<tr>
+  <td>YOUTUBE</td>
+  <td>Lägg till Youtube videor inom en figure/figcaption.</td>
+</tr>
+<tr>
+  <td>WARNING</td>
+  <td>Visa en varningsruta med text.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Här följer ett par exempel på hur man använder dessa shortcodes.</p>
+
+<h2>Bilder med shortcode</h2>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg?width=1100&height=100&crop-to-fit" alt="En eld som tar upp hela sidan."/></a>
+<figcaption>
+
+<p>En eld som tar upp hela sidan.</p>
+
+</figcaption>
+</figure>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/eld.jpg?width=300" alt="En liten eld som flyter till höger."/></a>
+<figcaption>
+
+<p>En liten eld som flyter till höger.</p>
+
+</figcaption>
+</figure>
+
+<p>Fördelen med en shortcode för bilder är att vi kan omsluta bilden med en figure och figcaption samt tillföra en CSS-klass.</p>
+
+<p>Detta ger oss möjligheten att justera bilder till vänster eller höger eller låta dem var ai mitten. Genom att bygga CSS-klasser så kan vi få full frihet över hur bilderna visas tillsammans med texten.</p>
+
+<p>Vi kan också vara säkra på att vi får en enhetlig struktur på HTML-koden för alla bilder.</p>
+
+<h2>Informations- och varningsrutor</h2>
+
+<p>Ibland vill man uppmärksamma läsaren på något extra i texten.</p>
+
+<div class="info">
+    <span class="icon fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-info fa-stack-1x fa-inverse" aria-hidden="true"></i>
+    </span>
+    <div>
+
+<p><strong>Detta är ren information upplysningsvis.</strong></p>
+
+<p>Här kan man skriva information och rama in det i en info-ruta.</p>
+
+</div></div>
+
+<p>Vill man varna användaren så passar en varningsruta bättre.</p>
+
+<div class="warning">
+    <span class="icon fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-exclamation-triangle fa-stack-1x fa-inverse" aria-hidden="true"></i>
+    </span>
+    <div>
+
+<p><strong>Detta är en VARNING!</strong></p>
+
+<p>Här skriver vi information om varför vi väljer att varna användaren.</p>
+
+</div></div>
+
+<h2>Video</h2>
+
+<p>Så här kan man länka till en video och inkludera den i artikeln, med eller utan referens till den spellistan som videon kan ingå i.</p>
+
+<figure class="figure">
+<iframe width="700" height="394" src="https://www.youtube.com/embed/eUBMCd7Tj6Q?listType=playlist&amp;list=PLKtP9l5q3ce_TF99y6BbUFC0Xzt6Pd9Ts" frameborder="0" allowfullscreen></iframe>
+<figcaption>
+
+<p>Mikael visar hur man felsöker med en gummianka.</p>
+
+</figcaption>
+</figure>
+
+<h2>Codepen</h2>
+
+<p>Med en Codepen kan man inkludera exempel på HTML, CSS och JavaScript i sitt dokument.</p>
+
+<figure class="figure figure-codepen" width="100%">
+<p data-height="300" data-theme-id="0" data-slug-hash="LpOqgN" data-default-tab="result" data-user="" data-embed-version="2" data-pen-title="" class="codepen">See the <a href="https://codepen.io//pen/LpOqgN/">Pen</a> on <a href="https://codepen.io">CodePen</a>.</p>
+<figcaption>
+
+<p>En Codepen med färger, bara som ett exempel.</p>
+
+</figcaption>
+</figure>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2>Asciinema</h2>
+
+<p>Här är en Asciinema som säger hej och välkommen.</p>
+
+<figure class="figure asciinema">
+<script type="text/javascript" src="https://asciinema.org/a/207899.js" id="asciicast-207899" async></script>
+<figcaption>
+
+<p>Kossan i cowsay hälsar välkommen till design-kursen.</p>
+
+</figcaption>
+</figure>
+";}s:8:"template";s:23:"anax/v2/article/default";}s:19:"next-previous-below";a:4:{s:6:"region";s:4:"main";s:8:"template";s:29:"anax/v2/next-previous/default";s:4:"sort";i:3;s:4:"data";a:4:{s:17:"nextPreviousTitle";b:1;s:4:"meta";a:2:{s:4:"type";s:4:"copy";s:4:"view";s:19:"next-previous-above";}s:4:"next";a:10:{s:4:"file";s:26:"verktyg/130_frontmatter.md";s:7:"section";s:3:"130";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Frontmatter";s:11:"publishTime";i:1540245600;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:19:"verktyg/frontmatter";}s:8:"previous";a:10:{s:4:"file";s:23:"verktyg/110_markdown.md";s:7:"section";s:3:"110";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Markdown";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:16:"verktyg/markdown";}}}s:3:"toc";a:3:{s:6:"region";s:12:"sidebar-left";s:8:"template";s:19:"anax/v2/toc/default";s:4:"data";a:3:{s:5:"title";s:9:"Innehåll";s:4:"meta";a:1:{s:4:"type";s:8:"book-toc";}s:3:"toc";a:26:{s:13:"verktyg/index";a:9:{s:4:"file";s:20:"verktyg/000_index.md";s:7:"section";s:3:"000";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Introduktion";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:16:"verktyg/innehall";a:9:{s:4:"file";s:23:"verktyg/100_innehall.md";s:7:"section";s:3:"100";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:9:"Innehåll";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:16:"verktyg/markdown";a:9:{s:4:"file";s:23:"verktyg/110_markdown.md";s:7:"section";s:3:"110";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Markdown";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:17:"verktyg/shortcode";a:9:{s:4:"file";s:24:"verktyg/120_shortcode.md";s:7:"section";s:3:"120";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:9:"Shortcode";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:19:"verktyg/frontmatter";a:9:{s:4:"file";s:26:"verktyg/130_frontmatter.md";s:7:"section";s:3:"130";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Frontmatter";s:11:"publishTime";i:1540245600;s:13:"sectionHeader";N;s:8:"linkable";N;}s:24:"verktyg/style-och-layout";a:9:{s:4:"file";s:31:"verktyg/200_style-och-layout.md";s:7:"section";s:3:"200";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:16:"Style och layout";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:20:"verktyg/stylevaljare";a:9:{s:4:"file";s:27:"verktyg/205_stylevaljare.md";s:7:"section";s:3:"205";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:13:"Styleväljare";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:30:"verktyg/vyer-och-templatefiler";a:9:{s:4:"file";s:37:"verktyg/207_vyer-och-templatefiler.md";s:7:"section";s:3:"207";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:23:"Vyer och Template filer";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:27:"verktyg/layout-och-regioner";a:9:{s:4:"file";s:34:"verktyg/208_layout-och-regioner.md";s:7:"section";s:3:"208";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:19:"Layout och regioner";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:20:"verktyg/font-awesome";a:9:{s:4:"file";s:27:"verktyg/210_font-awesome.md";s:7:"section";s:3:"210";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Font Awesome";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/vertikalt-grid";a:9:{s:4:"file";s:29:"verktyg/310_vertikalt-grid.md";s:7:"section";s:3:"310";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Vertikalt grid";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:25:"verktyg/horisontellt-grid";a:9:{s:4:"file";s:32:"verktyg/320_horisontellt-grid.md";s:7:"section";s:3:"320";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:32:"Horisontellt (typografiskt) grid";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/bygg-eget-tema";a:9:{s:4:"file";s:29:"verktyg/330_bygg-eget-tema.md";s:7:"section";s:3:"330";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Bygg eget tema";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/styla-en-route";a:9:{s:4:"file";s:29:"verktyg/340_styla-en-route.md";s:7:"section";s:3:"340";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Styla en route";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:20:"verktyg/anax-ramverk";a:9:{s:4:"file";s:27:"verktyg/400_anax-ramverk.md";s:7:"section";s:3:"400";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Anax ramverk";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:29:"verktyg/development-utilities";a:9:{s:4:"file";s:36:"verktyg/402_development-utilities.md";s:7:"section";s:3:"402";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:21:"Development utilities";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:21:"verktyg/bootstrapping";a:9:{s:4:"file";s:28:"verktyg/403_bootstrapping.md";s:7:"section";s:3:"403";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:13:"Bootstrapping";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:14:"verktyg/routes";a:9:{s:4:"file";s:21:"verktyg/405_routes.md";s:7:"section";s:3:"405";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:6:"Routes";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:18:"verktyg/kontroller";a:9:{s:4:"file";s:25:"verktyg/408_kontroller.md";s:7:"section";s:3:"408";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:10:"Kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:32:"verktyg/skapa-en-egen-kontroller";a:9:{s:4:"file";s:39:"verktyg/410_skapa-en-egen-kontroller.md";s:7:"section";s:3:"410";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:24:"Skapa en egen kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:27:"verktyg/ramverkets-tjanster";a:9:{s:4:"file";s:34:"verktyg/415_ramverkets-tjanster.md";s:7:"section";s:3:"415";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:20:"Ramverkets tjänster";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:32:"verktyg/tjanster-i-en-kontroller";a:9:{s:4:"file";s:39:"verktyg/420_tjanster-i-en-kontroller.md";s:7:"section";s:3:"420";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:25:"Tjänster i en kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:25:"verktyg/anax-installation";a:9:{s:4:"file";s:32:"verktyg/900_anax-installation.md";s:7:"section";s:3:"900";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:17:"Anax installation";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:16:"verktyg/anax-cli";a:9:{s:4:"file";s:23:"verktyg/910_anax-cli.md";s:7:"section";s:3:"910";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Anax CLI";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:19:"verktyg/scaffolding";a:9:{s:4:"file";s:26:"verktyg/920_scaffolding.md";s:7:"section";s:3:"920";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Scaffolding";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/lagg-till-tema";a:9:{s:4:"file";s:29:"verktyg/930_lagg-till-tema.md";s:7:"section";s:3:"930";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:15:"Lägg till tema";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}}}}}s:11:"frontmatter";a:1:{s:5:"title";s:9:"Shortcode";}}

@@ -1,0 +1,113 @@
+O:8:"stdClass":7:{s:4:"file";s:28:"verktyg/403_bootstrapping.md";s:7:"section";s:3:"403";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"views";a:6:{s:5:"flash";a:3:{s:6:"region";s:5:"flash";s:8:"template";s:21:"anax/v2/image/default";s:4:"data";a:1:{s:3:"src";s:68:"image/theme/tree.jpg?width=1100&height=150&crop-to-fit&area=0,0,30,0";}}s:10:"breadcrumb";a:3:{s:6:"region";s:10:"breadcrumb";s:8:"template";s:26:"anax/v2/breadcrumb/default";s:4:"data";a:2:{s:4:"meta";a:1:{s:4:"type";s:10:"breadcrumb";}s:10:"breadcrumb";a:2:{i:1;a:2:{s:3:"url";s:8:"verktyg/";s:4:"text";s:20:"Verktyg och tekniker";}i:0;a:2:{s:3:"url";s:21:"verktyg/bootstrapping";s:4:"text";s:13:"Bootstrapping";}}}}s:19:"next-previous-above";a:4:{s:6:"region";s:4:"main";s:8:"template";s:29:"anax/v2/next-previous/default";s:4:"sort";i:1;s:4:"data";a:4:{s:17:"nextPreviousTitle";b:0;s:4:"meta";a:1:{s:4:"type";s:13:"next-previous";}s:4:"next";a:10:{s:4:"file";s:21:"verktyg/405_routes.md";s:7:"section";s:3:"405";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:6:"Routes";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:14:"verktyg/routes";}s:8:"previous";a:10:{s:4:"file";s:36:"verktyg/402_development-utilities.md";s:7:"section";s:3:"402";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:21:"Development utilities";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:29:"verktyg/development-utilities";}}}s:4:"main";a:3:{s:4:"sort";i:2;s:4:"data";a:3:{s:4:"meta";a:1:{s:4:"type";s:8:"toc-sort";}s:7:"content";s:2999:"<h1>Bootstrapping</h1>
+
+<p>Bootstrapping av ramverket innebär den sekvens där ramverket tar emot en request och startar upp sig självt för att hantera den requesten.</p>
+
+<h2>En request-cykel i ramverket</h2>
+
+<p>Du kan se hur en request-cykel ser ut i filen <a href="https://github.com/dbwebb-se/ramverk1/blob/master/example/redovisa/htdocs/index.php"><code>htdocs/index.php</code></a>.</p>
+
+<p>Man kan dela in koden i tre delar, bootstrapping av ramverket och dess tjänster (1) och därefter hantering av requesten (2) och slutligen rendering av svaret på requesten (3).</p>
+
+<p>Det handlar inte om så många rader så vi kan titta på dem här.</p>
+
+<p>Först har vi de delar som är relaterade till bootstrappingen.</p>
+
+<pre class="hljs"><span class="hljs-comment">/**
+ * Bootstrap the framework and handle the request and send the response.
+ */</span>
+
+<span class="hljs-comment">// Were are all the files?</span>
+define(<span class="hljs-string">"ANAX_INSTALL_PATH"</span>, realpath(<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">"/.."</span>));
+
+<span class="hljs-comment">// Set development/production environment and error reporting</span>
+<span class="hljs-keyword">require</span> ANAX_INSTALL_PATH . <span class="hljs-string">"/config/commons.php"</span>;
+
+<span class="hljs-comment">// Get the autoloader by using composers version.</span>
+<span class="hljs-keyword">require</span> ANAX_INSTALL_PATH . <span class="hljs-string">"/vendor/autoload.php"</span>;
+
+<span class="hljs-comment">// Add all framework services to $di</span>
+$di = <span class="hljs-keyword">new</span> Anax\DI\DIFactoryConfig();
+$di-&gt;loadServices(ANAX_INSTALL_PATH . <span class="hljs-string">"/config/di"</span>);
+</pre>
+
+<p>Nu had vi de viktiga sökvägarna på plats, diverse grundinställningar är gjorda och autoloadern är laddad.</p>
+
+<p>Alla ramverkets tjänster är laddade och redo, dock ej nödvändigtvis aktiverade, i tjänstekontainern <code>$di</code>.</p>
+
+<p>När ramverket är uppstartat så sker (2) och (3) i en sekvens i följande kod.</p>
+
+<pre class="hljs"><span class="hljs-comment">// Send the response that the router returns from the route handler</span>
+$di-&gt;get(<span class="hljs-string">"response"</span>)-&gt;send(
+    $di-&gt;get(<span class="hljs-string">"router"</span>)-&gt;handle(
+        $di-&gt;get(<span class="hljs-string">"request"</span>)-&gt;getRoute(),
+        $di-&gt;get(<span class="hljs-string">"request"</span>)-&gt;getMethod()
+    )
+);
+</pre>
+
+<p>Routern hanterar den request som kommer via metoden <code>$router-&gt;handle()</code> som tar request-metoden och request-urlen som parametrar.</p>
+
+<p>Routern har i sin konfiguration ett antal routes och om någon, eller flera av dem, matchar, så kommer slutligen ett svar i form av text eller en instans av en response-klass.</p>
+
+<p>Svaret renderas med response-klassens <code>send()</code>.</p>
+
+<p>Det är allt.</p>
+
+<p>Bootstrap, request, router, hanterare, response.</p>
+";s:7:"excerpt";s:2999:"<h1>Bootstrapping</h1>
+
+<p>Bootstrapping av ramverket innebär den sekvens där ramverket tar emot en request och startar upp sig självt för att hantera den requesten.</p>
+
+<h2>En request-cykel i ramverket</h2>
+
+<p>Du kan se hur en request-cykel ser ut i filen <a href="https://github.com/dbwebb-se/ramverk1/blob/master/example/redovisa/htdocs/index.php"><code>htdocs/index.php</code></a>.</p>
+
+<p>Man kan dela in koden i tre delar, bootstrapping av ramverket och dess tjänster (1) och därefter hantering av requesten (2) och slutligen rendering av svaret på requesten (3).</p>
+
+<p>Det handlar inte om så många rader så vi kan titta på dem här.</p>
+
+<p>Först har vi de delar som är relaterade till bootstrappingen.</p>
+
+<pre class="hljs"><span class="hljs-comment">/**
+ * Bootstrap the framework and handle the request and send the response.
+ */</span>
+
+<span class="hljs-comment">// Were are all the files?</span>
+define(<span class="hljs-string">"ANAX_INSTALL_PATH"</span>, realpath(<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">"/.."</span>));
+
+<span class="hljs-comment">// Set development/production environment and error reporting</span>
+<span class="hljs-keyword">require</span> ANAX_INSTALL_PATH . <span class="hljs-string">"/config/commons.php"</span>;
+
+<span class="hljs-comment">// Get the autoloader by using composers version.</span>
+<span class="hljs-keyword">require</span> ANAX_INSTALL_PATH . <span class="hljs-string">"/vendor/autoload.php"</span>;
+
+<span class="hljs-comment">// Add all framework services to $di</span>
+$di = <span class="hljs-keyword">new</span> Anax\DI\DIFactoryConfig();
+$di-&gt;loadServices(ANAX_INSTALL_PATH . <span class="hljs-string">"/config/di"</span>);
+</pre>
+
+<p>Nu had vi de viktiga sökvägarna på plats, diverse grundinställningar är gjorda och autoloadern är laddad.</p>
+
+<p>Alla ramverkets tjänster är laddade och redo, dock ej nödvändigtvis aktiverade, i tjänstekontainern <code>$di</code>.</p>
+
+<p>När ramverket är uppstartat så sker (2) och (3) i en sekvens i följande kod.</p>
+
+<pre class="hljs"><span class="hljs-comment">// Send the response that the router returns from the route handler</span>
+$di-&gt;get(<span class="hljs-string">"response"</span>)-&gt;send(
+    $di-&gt;get(<span class="hljs-string">"router"</span>)-&gt;handle(
+        $di-&gt;get(<span class="hljs-string">"request"</span>)-&gt;getRoute(),
+        $di-&gt;get(<span class="hljs-string">"request"</span>)-&gt;getMethod()
+    )
+);
+</pre>
+
+<p>Routern hanterar den request som kommer via metoden <code>$router-&gt;handle()</code> som tar request-metoden och request-urlen som parametrar.</p>
+
+<p>Routern har i sin konfiguration ett antal routes och om någon, eller flera av dem, matchar, så kommer slutligen ett svar i form av text eller en instans av en response-klass.</p>
+
+<p>Svaret renderas med response-klassens <code>send()</code>.</p>
+
+<p>Det är allt.</p>
+
+<p>Bootstrap, request, router, hanterare, response.</p>
+";}s:8:"template";s:23:"anax/v2/article/default";}s:19:"next-previous-below";a:4:{s:6:"region";s:4:"main";s:8:"template";s:29:"anax/v2/next-previous/default";s:4:"sort";i:3;s:4:"data";a:4:{s:17:"nextPreviousTitle";b:1;s:4:"meta";a:2:{s:4:"type";s:4:"copy";s:4:"view";s:19:"next-previous-above";}s:4:"next";a:10:{s:4:"file";s:21:"verktyg/405_routes.md";s:7:"section";s:3:"405";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:6:"Routes";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:14:"verktyg/routes";}s:8:"previous";a:10:{s:4:"file";s:36:"verktyg/402_development-utilities.md";s:7:"section";s:3:"402";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:21:"Development utilities";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;s:5:"route";s:29:"verktyg/development-utilities";}}}s:3:"toc";a:3:{s:6:"region";s:12:"sidebar-left";s:8:"template";s:19:"anax/v2/toc/default";s:4:"data";a:3:{s:5:"title";s:9:"Innehåll";s:4:"meta";a:1:{s:4:"type";s:8:"book-toc";}s:3:"toc";a:26:{s:13:"verktyg/index";a:9:{s:4:"file";s:20:"verktyg/000_index.md";s:7:"section";s:3:"000";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Introduktion";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:16:"verktyg/innehall";a:9:{s:4:"file";s:23:"verktyg/100_innehall.md";s:7:"section";s:3:"100";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:9:"Innehåll";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:16:"verktyg/markdown";a:9:{s:4:"file";s:23:"verktyg/110_markdown.md";s:7:"section";s:3:"110";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Markdown";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:17:"verktyg/shortcode";a:9:{s:4:"file";s:24:"verktyg/120_shortcode.md";s:7:"section";s:3:"120";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:9:"Shortcode";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:19:"verktyg/frontmatter";a:9:{s:4:"file";s:26:"verktyg/130_frontmatter.md";s:7:"section";s:3:"130";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Frontmatter";s:11:"publishTime";i:1540245600;s:13:"sectionHeader";N;s:8:"linkable";N;}s:24:"verktyg/style-och-layout";a:9:{s:4:"file";s:31:"verktyg/200_style-och-layout.md";s:7:"section";s:3:"200";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:16:"Style och layout";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:20:"verktyg/stylevaljare";a:9:{s:4:"file";s:27:"verktyg/205_stylevaljare.md";s:7:"section";s:3:"205";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:13:"Styleväljare";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:30:"verktyg/vyer-och-templatefiler";a:9:{s:4:"file";s:37:"verktyg/207_vyer-och-templatefiler.md";s:7:"section";s:3:"207";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:23:"Vyer och Template filer";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:27:"verktyg/layout-och-regioner";a:9:{s:4:"file";s:34:"verktyg/208_layout-och-regioner.md";s:7:"section";s:3:"208";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:19:"Layout och regioner";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:20:"verktyg/font-awesome";a:9:{s:4:"file";s:27:"verktyg/210_font-awesome.md";s:7:"section";s:3:"210";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Font Awesome";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/vertikalt-grid";a:9:{s:4:"file";s:29:"verktyg/310_vertikalt-grid.md";s:7:"section";s:3:"310";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Vertikalt grid";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:25:"verktyg/horisontellt-grid";a:9:{s:4:"file";s:32:"verktyg/320_horisontellt-grid.md";s:7:"section";s:3:"320";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:32:"Horisontellt (typografiskt) grid";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/bygg-eget-tema";a:9:{s:4:"file";s:29:"verktyg/330_bygg-eget-tema.md";s:7:"section";s:3:"330";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Bygg eget tema";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/styla-en-route";a:9:{s:4:"file";s:29:"verktyg/340_styla-en-route.md";s:7:"section";s:3:"340";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:14:"Styla en route";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:20:"verktyg/anax-ramverk";a:9:{s:4:"file";s:27:"verktyg/400_anax-ramverk.md";s:7:"section";s:3:"400";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:12:"Anax ramverk";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:29:"verktyg/development-utilities";a:9:{s:4:"file";s:36:"verktyg/402_development-utilities.md";s:7:"section";s:3:"402";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:21:"Development utilities";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:21:"verktyg/bootstrapping";a:9:{s:4:"file";s:28:"verktyg/403_bootstrapping.md";s:7:"section";s:3:"403";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:13:"Bootstrapping";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:14:"verktyg/routes";a:9:{s:4:"file";s:21:"verktyg/405_routes.md";s:7:"section";s:3:"405";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:6:"Routes";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:18:"verktyg/kontroller";a:9:{s:4:"file";s:25:"verktyg/408_kontroller.md";s:7:"section";s:3:"408";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:10:"Kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:32:"verktyg/skapa-en-egen-kontroller";a:9:{s:4:"file";s:39:"verktyg/410_skapa-en-egen-kontroller.md";s:7:"section";s:3:"410";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:24:"Skapa en egen kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:27:"verktyg/ramverkets-tjanster";a:9:{s:4:"file";s:34:"verktyg/415_ramverkets-tjanster.md";s:7:"section";s:3:"415";s:5:"level";i:2;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:20:"Ramverkets tjänster";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:32:"verktyg/tjanster-i-en-kontroller";a:9:{s:4:"file";s:39:"verktyg/420_tjanster-i-en-kontroller.md";s:7:"section";s:3:"420";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:25:"Tjänster i en kontroller";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:25:"verktyg/anax-installation";a:9:{s:4:"file";s:32:"verktyg/900_anax-installation.md";s:7:"section";s:3:"900";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:17:"Anax installation";s:11:"publishTime";b:0;s:13:"sectionHeader";b:1;s:8:"linkable";b:1;}s:16:"verktyg/anax-cli";a:9:{s:4:"file";s:23:"verktyg/910_anax-cli.md";s:7:"section";s:3:"910";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:8:"Anax CLI";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:19:"verktyg/scaffolding";a:9:{s:4:"file";s:26:"verktyg/920_scaffolding.md";s:7:"section";s:3:"920";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:11:"Scaffolding";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}s:22:"verktyg/lagg-till-tema";a:9:{s:4:"file";s:29:"verktyg/930_lagg-till-tema.md";s:7:"section";s:3:"930";s:5:"level";i:1;s:8:"internal";b:0;s:7:"tocable";b:1;s:5:"title";s:15:"Lägg till tema";s:11:"publishTime";b:0;s:13:"sectionHeader";N;s:8:"linkable";N;}}}}}s:11:"frontmatter";a:1:{s:5:"title";s:13:"Bootstrapping";}}

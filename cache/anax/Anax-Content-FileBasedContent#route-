@@ -1,0 +1,37 @@
+O:8:"stdClass":7:{s:4:"file";s:8:"index.md";s:7:"section";s:0:"";s:5:"level";i:0;s:8:"internal";b:0;s:7:"tocable";b:0;s:5:"views";a:2:{s:5:"flash";a:3:{s:6:"region";s:5:"flash";s:8:"template";s:21:"anax/v2/image/default";s:4:"data";a:1:{s:3:"src";s:68:"image/theme/tree.jpg?width=1100&height=150&crop-to-fit&area=0,0,30,0";}}s:4:"main";a:2:{s:8:"template";s:23:"anax/v2/article/default";s:4:"data";a:3:{s:5:"title";s:14:"Min fina titel";s:7:"content";s:1358:"<h1>Min me-sida i kursen ramverk1</h1>
+
+<p>Detta innehåll är skrivet i markdown och du hittar innehållet i filen <code>content/index.md</code>.</p>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/me.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/me.jpg?w=400" alt="Bild på mig"/></a>
+<figcaption>
+
+<p>Bild på mig</p>
+
+</figcaption>
+</figure>
+
+<p>Om Mig Själv</p>
+
+<p>Hej jag heter simon och kommer från Uppsala. Jag är 21 år och gick ut gymnasiet från IT-G gymnasiets tekniska utbildning 2017. . Jag har alltid varit väldigt intreserad av datorer och internet. Därför har jag valt att jag ska bli webutvecklare. dettta värkade då som ett bra ställe att börja min karriärs plan på.</p>
+
+<p>jag är uppväxt i uppsala och har bott här i hela mitt liv. min fritid har mest spenderats med olika datorspel från cs till wow till starcraft och allt där i mellan. Runt tiden jag började gymnasiet blev jag mycket mer intreserad av hur datorer funkade dock och med det började bygga egna datorer och koda lite på sidan av. Med att ha hållit på mycket med datorer och gått en teknisk linj eså hoppas jag att denna kurs ska gå bra för mig Men förutom datorer är jag ofta ute och gör saker som att åka longboard eller bara vara med vänner.</p>
+";s:7:"excerpt";s:1358:"<h1>Min me-sida i kursen ramverk1</h1>
+
+<p>Detta innehåll är skrivet i markdown och du hittar innehållet i filen <code>content/index.md</code>.</p>
+
+<figure class="figure right">
+<a href="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/me.jpg"><img src="http://localhost/dbwebb-kurser/ramverk1/me/redovisa/htdocs/image/me.jpg?w=400" alt="Bild på mig"/></a>
+<figcaption>
+
+<p>Bild på mig</p>
+
+</figcaption>
+</figure>
+
+<p>Om Mig Själv</p>
+
+<p>Hej jag heter simon och kommer från Uppsala. Jag är 21 år och gick ut gymnasiet från IT-G gymnasiets tekniska utbildning 2017. . Jag har alltid varit väldigt intreserad av datorer och internet. Därför har jag valt att jag ska bli webutvecklare. dettta värkade då som ett bra ställe att börja min karriärs plan på.</p>
+
+<p>jag är uppväxt i uppsala och har bott här i hela mitt liv. min fritid har mest spenderats med olika datorspel från cs till wow till starcraft och allt där i mellan. Runt tiden jag började gymnasiet blev jag mycket mer intreserad av hur datorer funkade dock och med det började bygga egna datorer och koda lite på sidan av. Med att ha hållit på mycket med datorer och gått en teknisk linj eså hoppas jag att denna kurs ska gå bra för mig Men förutom datorer är jag ofta ute och gör saker som att åka longboard eller bara vara med vänner.</p>
+";}}}s:11:"frontmatter";a:1:{s:5:"title";s:14:"Min fina titel";}}
