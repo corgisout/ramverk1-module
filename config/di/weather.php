@@ -8,7 +8,7 @@ return [
         "weather" => [
             "active" => false,
             "shared" => true,
-            "callback" => function () {
+            "callback" => function() {
                 $weather = new \Anax\Model\Weather();
                 $cfg = $this->get("configuration");
                 $config = $cfg->load("apiKey.php");

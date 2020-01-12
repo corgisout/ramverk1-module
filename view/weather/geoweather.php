@@ -23,7 +23,7 @@ namespace Anax\View
             </tr>
 
             <?php
-            if(is_array($time)){
+            if (is_array($time)) {
                 for ($i = 0; $i < count($time); $i++) {
                 ?>
             <tr>
@@ -35,9 +35,9 @@ namespace Anax\View
     } else {
         ?>  <p style= "color: red"> <?php echo $error;
     }
-         ?></p>
+            ?></p>
         </table>
-        <?php if(isset($lon) && isset($lat)){ ?>
+        <?php if (isset($lon) && isset($lat)) { ?>
         <iframe width="75%"
         height="550"
         frameborder="0"
