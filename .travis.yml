@@ -21,7 +21,7 @@ before_script:
 script:
     - make test
 
-# notifications:
+#notifications:
 #     irc: "irc.freenode.org#dbwebb"
 #     urls:
         # # canax
