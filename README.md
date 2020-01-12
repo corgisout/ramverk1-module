@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/corgisout/ramverk1-module.svg?branch=master)](https://travis-ci.com/corgisout/ramverk1-module)
+
 Anax weather-module
 ==================================
 
@@ -35,7 +37,7 @@ rsync -av vendor/sihd17/weather/test/ ./test/
 
 ```
 
-3.  create config/apiKey.php to contain api keys
+3.  add you're api keys to config/apiKey.php instead of xxx
 
 
 ```text
