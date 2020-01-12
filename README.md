@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/corgisout/ramverk1-module.svg?branch=master)](https://travis-ci.com/corgisout/ramverk1-module)
-
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/badges/build.png?b=master)](https://scrutinizer-ci.com/g/corgisout/ramverk1-module/build-status/master)
 Anax weather-module
 ==================================
 
