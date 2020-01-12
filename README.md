@@ -5,9 +5,9 @@ Install and setup Anax
 ------------------------------------
 
 You need a Anax installation to use this module. You can create an Anax installation
-using the [`anax-cli`] that  an be found at (https://github.com/canax/anax-cli).
+using the anax-cli that  an be found at (https://github.com/canax/anax-cli).
 
-create an Anax installation `anax-site-develop` into the directory `test/` with bash.
+create an Anax installation **anax-site-develop** into the directory **test/** with bash.
 
 ```
 anax create test ramverk1-me-v2
