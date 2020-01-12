@@ -23,13 +23,14 @@ class WeatherControllerTest extends TestCase
         global $di;
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
         $this->di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
         $di = $this->di;
-
         $this->controller = new WeatherController();
         $this->controller->setDI($this->di);
         $di->get("request");
         $di->get("session");
+
         $res = $this->controller->indexActionGet();
         $this->di->request->setPost("search", "karlskrona");
         $this->di->request->setPost("when", "past");
@@ -45,6 +46,7 @@ class WeatherControllerTest extends TestCase
         global $di;
         $this->di = new DIFactoryConfig();
         $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
         $this->di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
         $di = $this->di;
 
